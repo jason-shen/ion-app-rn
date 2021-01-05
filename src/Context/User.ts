@@ -1,3 +1,11 @@
 import {createContext} from 'react';
 
-export const UserContext = createContext(null);
+interface UserType {
+  user: string | undefined;
+  setUser: (user: string) => void;
+}
+
+export const UserContext = createContext<UserType>({
+  user: undefined,
+  setUser: () => null,
+});

@@ -1,25 +1,31 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import {Input} from 'react-native-elements';
+import {createStackNavigator} from '@react-navigation/stack';
+import {routes} from './Routes';
+import LoginScreen from '../Screens/LoginScreen';
+
+const Stack = createStackNavigator();
 
 const LoginStack = () => {
   return (
-    <View style={styles.root}>
-      <Input
-        placeholder="INPUT WITH CUSTOM ICON"
-        leftIcon={<Icon name="user" size={24} color="black" />}
+    <Stack.Navigator mode="modal" initialRouteName="Login">
+      <Stack.Screen
+        name={routes.Login}
+        component={LoginScreen}
+        options={{
+          headerShown: false,
+          // title: 'Login',
+          // headerStyle: {
+          //   backgroundColor: '#19202c',
+          //   borderBottomWidth: 0,
+          // },
+          // headerTintColor: '#fff',
+          // headerTitleStyle: {
+          //   fontWeight: 'bold',
+          // },
+        }}
       />
-    </View>
+    </Stack.Navigator>
   );
 };
-
-const styles = StyleSheet.create({
-  root: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
 
 export default LoginStack;

@@ -5,11 +5,9 @@ import {UserContext} from './Context/User';
 import MainNavigation from './Navigation';
 
 const App = () => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState<undefined | string>(undefined);
   const providerValue = useMemo(() => ({user, setUser}), [user, setUser]);
-
   return (
-    // @ts-ignore
     <UserContext.Provider value={providerValue}>
       <View style={styles.root}>
         <StatusBar translucent barStyle="light-content" />

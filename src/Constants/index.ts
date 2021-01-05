@@ -1,1 +1,1 @@
-export const SIGNAL_URL = 'http://localhost:8443';
+export const SIGNAL_URL = 'ws://localhost:8443';
